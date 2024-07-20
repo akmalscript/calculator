@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="reset.css" rel="stylesheet"></style>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #282828;
+        }
+        h1  {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        #calculator {
+            width: 300px;
+            height: 400px;
+            background-color: #ebebeb;
+            color: #000;
+            border-radius: 15px;
+        }
+        #display {
+            width: 100%;
+            height: 30%;
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+        }
+        #keyboard {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        button {
+            width: 75px;
+            height: 56px;
+            border: none;
+        }
+        button:hover {
+            background-color: #DDDDDD;
+        }
+        button:active {
+            border: 1px solid grey;
+        }
+
+        #display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #screen {
+            width: 85%;
+            height: 50%;
+            color: #000;
+            border: 1px solid grey;
+            border-radius: 5px;
+
+            text-align: right;
+            font-size: 39px;
+            padding-right: 5px;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid grey;
+        }
+        .border-left {
+            border-left: 1px solid grey;
+        }
+        .border-top {
+            border-top: 1px solid grey;
+        }
+        .border-bottom-left-radius {
+            border-bottom-left-radius: 10px;
+        }
+        .border-bottom-right-radius {
+            border-bottom-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snowyfor's Calculator</h1>
+    <div id="calculator">
+        <div id="display">
+            <div id="screen"></div>
+        </div>
+        <div id="keyboard">
+            <button id="clear" class="border-bottom border-top">C</button>
+            <button id="plus/minus" class="border-bottom border-top">+/-</button>
+            <button id="mod" class="border-bottom border-top">%</button>
+            <button id="del" class="border-bottom border-top border-left">⌫</button>
+
+            <button id="7">7</button>
+            <button id="8">8</button>
+            <button id="9">9</button>
+            <button id="div" class="border-left">÷</button>
+
+            <button id="4">4</button>
+            <button id="5">5</button>
+            <button id="6">6</button>
+            <button id="mul" class="border-left">×</button>
+            
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+            <button id="sub" class="border-left">-</button>
+
+            <button id="0" class="border-bottom-left-radius">0</button>
+            <button id="coma">.</button>
+            <button id="equal">=</button>
+            <button id="add" class="border-left border-bottom-right-radius">+</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
