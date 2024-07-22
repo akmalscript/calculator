@@ -55,13 +55,28 @@ keyboard.addEventListener('click', (e) => {
                 break;
             case 'equal':
                 if (num1 !== '' && num2 !== '' && operator !== '') {
-                    let result = operate(operator, parseFloat(num1), parseFloat(num2));
-                    screen.textContent = result;
-                    console.log(num1);
-                    console.log(num2);
-                    num1 = result;
-                    num2 = '';
-                    operator = '';
+                    if(operator === '÷' && num2 === '0') {
+                        screen.textContent = 'Error';
+                        num1 = '';
+                        num2 = '';
+                        operator = '';
+                    } else if(num1.includes('.') || num2.includes('.')) {  // if the number is decimal
+                        let result = operate(operator, parseFloat(num1), parseFloat(num2));
+                        screen.textContent = result.toFixed(2);
+                        console.log(num1);
+                        console.log(num2);
+                        num1 = result.toFixed(2);
+                        num2 = '';
+                        operator = '';
+                    } else {  // if the number is integer
+                        let result = operate(operator, parseFloat(num1), parseFloat(num2));
+                        screen.textContent = result;
+                        console.log(num1);
+                        console.log(num2);
+                        num1 = result;
+                        num2 = '';
+                        operator = '';
+                    }
                 }
                 break;
             case 'coma':
