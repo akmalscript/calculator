@@ -146,13 +146,12 @@ function calculateResult() {
             operator = '';
         } else if(num1.includes('.') || num2.includes('.')) {  // if the number is decimal
             let result = operate(operator, parseFloat(num1), parseFloat(num2));
-            screen.textContent = result.toFixed(2);
-            num1 = result.toFixed(2);
-            num2 = '';
-            operator = '';
-        }  else if(screen.textContent.includes('%')) {  // if the number include percent
-            let result = operate(operator, parseFloat(num1), parseFloat(num2));
-            screen.textContent = result.toFixed(2);
+            console.log(result);
+            if (isDecimalZero(result)) {
+                screen.textContent = result
+            } else {
+                screen.textContent = result.toFixed(2);
+            }
             num1 = result.toFixed(2);
             num2 = '';
             operator = '';
@@ -204,6 +203,22 @@ function handlePercent(percent) {
     } else {
         num2 = (parseFloat(num2) / 100).toString();
     }
+}
+
+function isDecimalZero(num) {
+    // convert num to string
+    let numStr = num.toString();
+    
+    // split num with dot(.) separator
+    let parts = numStr.split('.');
+    
+    // if it isn't decimal, return true
+    if (parts.length < 2) {
+        return true;
+    }
+    
+    // check, is decimal part only contain 0?
+    return /^0*$/.test(parts[1]);
 }
 
 function operate(operator, num1, num2) {
