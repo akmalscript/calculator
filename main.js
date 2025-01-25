@@ -240,7 +240,7 @@ function handleOperator(op) {
 
     // handle minus input in the beginning
     if((screen.textContent === '' || screen.textContent === '0' ) && op === '-') {
-        num1 += op;
+        num1 = op;
         screen.textContent = op;
     }
 
