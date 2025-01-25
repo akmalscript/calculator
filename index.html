@@ -2,120 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link href="reset.css" rel="stylesheet"></style>
+    <link rel="stylesheet" href="reset.css">
     <style>
+        :root {
+            --black-overlay: rgba(0,0,0,0.3);
+            --onyx-black: #2d3436;
+            --charcoal-grey: #666;
+            --stone-grey: #888;
+            --muted-grey: #999;
+            --pearl-white: #f0f0f0;
+            --light-grey: #ddd;
+            --mint-green: #a8e6cf;
+            --snow-mist: #f8f9fa;
+            --peachy-blush: #ffd3b6;
+            --soft-coral: #ffaaa5;
+        }
+
         body {
+            background-color: var(--pearl-white);
+            font-family: Arial, sans-serif;
+
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
-            background-color: #282828;
+            gap: 20px;
         }
-        h1  {
-            color: #fff;
-            margin-bottom: 20px;
+        p {
+            font-size: 20px;
+            color: var(--onyx-black);
         }
         #calculator {
             width: 350px;
-            height: 450px;
-            background-color: #ebebeb;
-            color: #000;
-            border-radius: 15px;
-        }
-        #display {
-            width: 100%;
-            height: 30%;
-            background-color: #fff;
-            color: #000;
-            border-radius: 10px;
-        }
-        #keyboard {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        button {
-            width: 87.5px;
-            height: 71.1px;
-            border: none;
-        }
-        button:hover {
-            background-color: #DDDDDD;
-        }
-        button:active {
-            border: 1px solid grey;
-        }
-
-        #display {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 20px;
+            border-radius: 20px;
+            background: var(--light-grey);
+            border: 8px solid var(--muted-grey);
+            box-shadow: inset 0 0 10px var(--black-overlay);
         }
         #screen {
-            width: 85%;
-            height: 50%;
-            color: #000;
-            border: 1px solid grey;
-            border-radius: 5px;
+            height: 94px;
+            padding: 20px;
+            background: var(--mint-green);
+            border: 3px solid var(--stone-grey);
+            border-radius: 10px;
+            margin-bottom: 20px;
 
+            color: var(--onyx-black);
             text-align: right;
-            font-size: 39px;
-            padding-right: 5px;
+            font-size: 2em;
+            font-family: "LCD", monospace;
+            
+        }
+        #buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        button {
+            width: 65px;
+            height: 65px;
+
+            padding: 15px;
+            font-size: 1.2em;
+            border: 3px solid var(--muted-grey);
+            border-radius: 10px;
+            background: var(--snow-mist);
+            box-shadow: 2px 2px 0 var(--charcoal-grey);
+            color: var(--onyx-black);
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+        button:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
         }
 
-        .border-bottom {
-            border-bottom: 1px solid grey;
+        .operator {
+            background: var(--peachy-blush);
         }
-        .border-left {
-            border-left: 1px solid grey;
-        }
-        .border-top {
-            border-top: 1px solid grey;
-        }
-        .border-bottom-left-radius {
-            border-bottom-left-radius: 10px;
-        }
-        .border-bottom-right-radius {
-            border-bottom-right-radius: 10px;
+
+        .special {
+            background: var(--soft-coral);
         }
     </style>
 </head>
 <body>
-    <h1>Snowyfor's Calculator</h1>
     <div id="calculator">
-        <div id="display">
-            <div id="screen"></div>
+        <div id="screen" class="border-top-left-radius border-top-right-radius">
+            0
         </div>
-        <div id="keyboard">
-            <button id="clear" class="border-bottom border-top">C</button>
-            <button id="plus/minus" class="border-bottom border-top">+/-</button>
-            <button id="percent" class="border-bottom border-top">%</button>
-            <button id="del" class="border-bottom border-top border-left">⌫</button>
+        <div id="buttons">
+            <button id="clear" class="special">C</button>
+            <button id="plus/minus" class="special">+/-</button>
+            <button id="percent" class="special">%</button>
+            <button id="del" class="special">⌫</button>
 
             <button id="7">7</button>
             <button id="8">8</button>
             <button id="9">9</button>
-            <button id="div" class="border-left">÷</button>
-
+            <button id="div" class="operator">÷</button>
+            
             <button id="4">4</button>
             <button id="5">5</button>
             <button id="6">6</button>
-            <button id="mul" class="border-left">×</button>
-            
+            <button id="mul" class="operator">×</button>
+
             <button id="1">1</button>
             <button id="2">2</button>
             <button id="3">3</button>
-            <button id="sub" class="border-left">-</button>
-
-            <button id="0" class="border-bottom-left-radius">0</button>
+            <button id="sub"  class="operator">-</button>
+            
+            <button id="0">0</button>
             <button id="coma">.</button>
             <button id="equal">=</button>
-            <button id="add" class="border-left border-bottom-right-radius">+</button>
+            <button id="add"  class="operator">+</button>
         </div>
     </div>
-    <script src="index.js"></script>
+    <p>© 2025 Snowy Forest</p>
+    <script src="main.js"></script>
 </body>
 </html>
